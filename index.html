@@ -21,7 +21,11 @@ fbq('track', 'PageView');
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@500;600;700;800&family=Nunito:wght@400;600;700;800&family=Caveat:wght@600;700&display=swap" rel="stylesheet">
+
+<!-- conexão antecipada com o host das imagens/vídeo para acelerar o primeiro carregamento -->
+<link rel="preconnect" href="https://doram.shop">
+<link rel="dns-prefetch" href="https://doram.shop">
 
 <style>
   :root{
@@ -66,7 +70,7 @@ fbq('track', 'PageView');
     background:var(--bg);
     min-height:100vh;
     position:relative;
-    padding-bottom:84px; /* espaço pra barra fixa */
+    padding-bottom:20px;
   }
 
   .section{padding:40px 20px;}
@@ -116,53 +120,6 @@ fbq('track', 'PageView');
     color:var(--muted);
     margin-bottom:24px;
   }
-
-  /* mockup de celular feito em CSS/HTML (sem imagem externa) */
-  .phone{
-    width:230px;
-    margin:0 auto 16px;
-    border:8px solid var(--ink);
-    border-radius:30px;
-    padding:10px 8px;
-    background:#fff;
-    box-shadow:var(--shadow-strong);
-  }
-  .phone-notch{
-    width:60px;height:6px;border-radius:4px;
-    background:var(--ink);
-    margin:0 auto 8px;
-  }
-  .phone-title{
-    background:var(--green);
-    color:#fff;
-    font-size:11px;
-    font-weight:800;
-    text-align:center;
-    padding:7px 4px;
-    border-radius:8px;
-    margin-bottom:8px;
-  }
-  .file-list{
-    display:grid;
-    grid-template-columns:1fr 1fr;
-    gap:5px;
-  }
-  .file-item{
-    display:flex;
-    align-items:center;
-    gap:5px;
-    background:var(--bg-alt);
-    border:1px solid var(--border);
-    border-radius:7px;
-    padding:5px 6px;
-    font-size:9px;
-    font-weight:700;
-    color:var(--ink);
-    white-space:nowrap;
-    overflow:hidden;
-    text-overflow:ellipsis;
-  }
-  .file-item span.ic{font-size:11px;}
 
   .phone-caption{
     text-align:center;
@@ -492,61 +449,146 @@ fbq('track', 'PageView');
     padding:26px 20px 20px;
   }
 
-  /* ===== BARRA FIXA MOBILE ===== */
-  .sticky-cta{
-    position:fixed;
-    left:0;right:0;bottom:0;
-    max-width:var(--maxw);
-    margin:0 auto;
-    background:#fff;
-    border-top:1px solid var(--border);
-    padding:10px 14px;
-    box-shadow:0 -6px 20px rgba(0,0,0,0.08);
-    z-index:60;
-    display:flex;
-    align-items:center;
-    gap:10px;
-  }
-  .sticky-cta .price-mini{
-    font-family:'Baloo 2',sans-serif;
-    font-weight:800;
-    font-size:15px;
-    color:var(--green-dark);
-    white-space:nowrap;
-  }
-  .sticky-cta .price-mini small{
-    display:block;
-    font-family:'Nunito',sans-serif;
+  /* ===== ACENTO MANUSCRITO (quebra a cara de template) ===== */
+  .hand-note{
+    font-family:'Caveat',cursive;
     font-weight:700;
-    font-size:9.5px;
-    color:var(--muted);
-  }
-  .sticky-cta .btn-cta{
-    padding:12px 14px;
-    font-size:14px;
+    color:var(--green-dark);
+    font-size:18px;
+    transform:rotate(-2deg);
+    display:inline-block;
   }
 
-  /* ===== NOTIFICAÇÃO DE COMPRA (DESATIVADA POR PADRÃO) =====
-     Só ative se conectar a um feed real de vendas (ex.: webhook do
-     gateway de pagamento). Mostrar nomes/horários fictícios como se
-     fossem compras reais é propaganda enganosa e pode gerar reprovação
-     de anúncio + risco com o CDC. */
-  .buy-toast{
-    display:none; /* mude para "flex" só com dados reais */
-    position:fixed;
-    left:14px; bottom:78px;
-    max-width:260px;
-    background:#fff;
-    border:1px solid var(--border);
-    border-radius:var(--radius-sm);
+  /* ===== VÍDEO (VSL) — carregamento sob demanda ===== */
+  .vsl{
+    position:relative;
+    width:240px;
+    max-width:80%;
+    margin:0 auto 18px;
+    border-radius:var(--radius-lg);
+    overflow:hidden;
+    background:#0E1A14;
     box-shadow:var(--shadow-strong);
-    padding:10px 12px;
-    align-items:center;
-    gap:10px;
-    z-index:55;
-    font-size:12px;
+    aspect-ratio:9/16;
   }
-  .buy-toast .dot{width:8px;height:8px;border-radius:50%;background:var(--green);flex:0 0 auto;}
+  .vsl video{
+    width:100%;height:100%;
+    object-fit:cover;
+    display:block;
+  }
+  .vsl-facade{
+    position:absolute;
+    inset:0;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    background:linear-gradient(160deg,#13251C,#0B1611);
+    cursor:pointer;
+    border:none;
+    width:100%;
+  }
+  .vsl-facade .play-btn{
+    width:64px;height:64px;
+    border-radius:50%;
+    background:#fff;
+    color:var(--green-dark);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:22px;
+    box-shadow:0 8px 22px rgba(0,0,0,0.35);
+  }
+  .vsl-facade .vsl-label{
+    position:absolute;
+    bottom:16px;left:16px;right:16px;
+    color:#fff;
+    font-size:13px;
+    font-weight:700;
+    text-align:left;
+  }
+
+  /* ===== CARROSSÉIS AUTOMÁTICOS (lateral, contínuo) ===== */
+  .marquee{
+    overflow:hidden;
+    margin:0 -20px 20px;
+    -webkit-mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+    mask-image:linear-gradient(90deg,transparent,#000 6%,#000 94%,transparent);
+  }
+  .marquee-track{
+    display:flex;
+    width:max-content;
+    gap:10px;
+    padding:0 20px;
+    animation:marquee-scroll linear infinite;
+  }
+  .marquee:active .marquee-track{animation-play-state:paused;}
+  @keyframes marquee-scroll{
+    from{transform:translateX(0);}
+    to{transform:translateX(-50%);}
+  }
+  .marquee-item{
+    flex:0 0 auto;
+    overflow:hidden;
+    background:var(--bg-alt);
+  }
+  .marquee-item img{width:100%;height:100%;object-fit:cover;display:block;}
+
+  .marquee-festas .marquee-track{animation-duration:34s;}
+  .marquee-festas .marquee-item{
+    width:128px;height:128px;
+    border-radius:var(--radius-sm);
+    border:1.5px solid rgba(31,174,95,0.28); /* borda verde bem leve */
+  }
+  .marquee-festas .marquee-item:nth-child(odd){transform:rotate(-2deg);}
+  .marquee-festas .marquee-item:nth-child(even){transform:rotate(1.5deg);}
+
+  .marquee-depo .marquee-track{animation-duration:24s;}
+  .marquee-depo .marquee-item{
+    width:140px;height:208px;
+    border-radius:var(--radius-md);
+    border:1px solid var(--border);
+    box-shadow:var(--shadow);
+  }
+
+  .marquee-temas .marquee-track{animation-duration:40s;animation-direction:reverse;}
+  .marquee-temas .marquee-item{
+    width:118px;height:118px;
+    border-radius:var(--radius-md);
+  }
+  .marquee-temas .marquee-item:nth-child(3n){transform:rotate(-1.5deg);}
+
+  @media (prefers-reduced-motion: reduce){
+    .marquee-track{animation:none;}
+  }
+
+  /* ===== ÍCONES ORGÂNICOS (substitui o círculo perfeito padrão) ===== */
+  .step-ic{
+    border-radius:42% 58% 53% 47% / 45% 41% 59% 55%;
+  }
+
+  /* ===== PREÇO BÁSICO "NERFADO" (menos visual, empurra pro premium) ===== */
+  .price-card.basic{
+    box-shadow:none;
+    background:var(--bg-alt);
+    opacity:.88;
+  }
+  .price-card.basic .price{font-size:24px;color:var(--muted);}
+  .price-card.basic .btn-outline{
+    border-color:var(--border);
+    color:var(--muted);
+    font-size:13.5px;
+  }
+
+  /* ===== PREÇO PREMIUM mais atraente ===== */
+  .price-card.featured{
+    border-width:2px;
+    box-shadow:0 0 0 5px var(--green-light), var(--shadow-strong);
+    background:linear-gradient(180deg,#fff 60%,var(--green-light));
+  }
+  .badge-top{
+    transform:translateX(-50%) rotate(-3deg);
+  }
+  .price-card.featured .price{font-size:36px;}
 
   @media (max-width:360px){
     .hero h1{font-size:24px;}
@@ -564,39 +606,23 @@ fbq('track', 'PageView');
   <section class="hero">
     <div class="section" style="padding-top:22px;">
       <div class="center">
-        <span class="eyebrow">APENAS R$5,99</span>
+        <span class="eyebrow">APENAS R$4,99</span>
         <h1>+2.500 <span class="hl-orange">MOLDES</span> DE FESTA INFANTIL <span class="hl-green">PRONTOS</span> PARA BAIXAR E IMPRIMIR</h1>
         <p class="sub">Arquivos digitais prontos para imprimir e montar festas incríveis em casa.</p>
       </div>
 
-      <!-- mockup do celular em HTML/CSS puro -->
-      <div class="phone">
-        <div class="phone-notch"></div>
-        <div class="phone-title">MILHARES DE TEMAS INFANTIS</div>
-        <div class="file-list">
-          <div class="file-item"><span class="ic">🦄</span>Anabela – Menina</div>
-          <div class="file-item"><span class="ic">📁</span>Agnes</div>
-          <div class="file-item"><span class="ic">📁</span>Alfaiate – Letras</div>
-          <div class="file-item"><span class="ic">👑</span>Alice M. – Rapunzel</div>
-          <div class="file-item"><span class="ic">📁</span>Anjos – Esquilos</div>
-          <div class="file-item"><span class="ic">🐾</span>Animais Baby</div>
-          <div class="file-item"><span class="ic">📁</span>Animais Balaonete</div>
-          <div class="file-item"><span class="ic">📁</span>Arwen – Jardim</div>
-          <div class="file-item"><span class="ic">📁</span>Arraial Vitral</div>
-          <div class="file-item"><span class="ic">📁</span>Arwen 80</div>
-          <div class="file-item"><span class="ic">📁</span>Aquário – DVD 2</div>
-          <div class="file-item"><span class="ic">📁</span>Aquarela</div>
-          <div class="file-item"><span class="ic">📁</span>Arvore de Natal</div>
-          <div class="file-item"><span class="ic">📁</span>Arlequina</div>
-          <div class="file-item"><span class="ic">📁</span>Astauto Carros</div>
-          <div class="file-item"><span class="ic">📁</span>Astronauta</div>
-        </div>
+      <!-- VSL: o vídeo só é carregado quando a pessoa toca em play, pra não pesar o carregamento inicial -->
+      <div class="vsl" id="vslBox" data-src="https://doram.shop/wp-content/uploads/2026/06/vsl-fetas-kit.mp4">
+        <button type="button" class="vsl-facade" id="vslPlay" aria-label="Assistir ao vídeo">
+          <span class="play-btn">▶</span>
+          <span class="vsl-label">Assista e veja como funciona</span>
+        </button>
       </div>
       <p class="phone-caption">Baixe, imprima e monte sua festa em casa em poucos minutos.</p>
 
       <div class="compare-box">
         Decoradoras cobram entre <strong>R$300 e R$800</strong> para montar uma festa.<br>
-        Aqui você paga apenas <strong>R$5,99</strong>.
+        Aqui você paga apenas <strong>R$4,99</strong>.
       </div>
 
       <a href="#precos" class="btn-cta">🎉 QUERO MEUS MOLDES AGORA</a>
@@ -614,14 +640,33 @@ fbq('track', 'PageView');
       <h2 class="section-title">Veja festas feitas com os moldes</h2>
       <p class="section-sub">Resultados reais de quem já usou nossos arquivos</p>
     </div>
-    <!-- Troque os .ph-img por <img src="fotos/festa-01.jpg" alt="..."> com fotos reais de festas montadas -->
-    <div class="gallery-grid">
-      <div class="ph-img">📷</div>
-      <div class="ph-img">📷</div>
-      <div class="ph-img">📷</div>
-      <div class="ph-img">📷</div>
-      <div class="ph-img">📷</div>
-      <div class="ph-img">📷</div>
+    <!-- carrossel automático — lista duplicada para o loop ficar contínuo -->
+    <div class="marquee marquee-festas">
+      <div class="marquee-track">
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-06.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-13.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-02.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-09.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17-1.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-14.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-12.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-08.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-05.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-11.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <!-- duplicata pro loop infinito (mesmas imagens, mantém o efeito contínuo) -->
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-06.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-13.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-02.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-09.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17-1.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-14.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-12.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-08.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-05.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-11.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+      </div>
     </div>
     <a href="#precos" class="btn-cta">🎉 QUERO FAZER FESTAS ASSIM</a>
   </section>
@@ -660,23 +705,18 @@ fbq('track', 'PageView');
       <h2 class="section-title">Depoimentos de Nossas Clientes</h2>
       <p class="section-sub">Milhares de mães já aceleraram sua produção e decoração com nossos moldes</p>
     </div>
-    <!-- Troque cada .testi-img por <img src="prints/depoimento-01.jpg"> com o print real da conversa -->
-    <div class="testi-scroll">
-      <div class="testi-card">
-        <div class="testi-head">💬 Cliente Silmara</div>
-        <div class="testi-img">print real do<br>WhatsApp aqui</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-head">💬 Cliente Daniela</div>
-        <div class="testi-img">print real do<br>WhatsApp aqui</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-head">💬 Cliente Tamires</div>
-        <div class="testi-img">print real do<br>WhatsApp aqui</div>
-      </div>
-      <div class="testi-card">
-        <div class="testi-head">💬 Cliente Natália</div>
-        <div class="testi-img">print real do<br>WhatsApp aqui</div>
+    <!-- carrossel automático de depoimentos -->
+    <div class="marquee marquee-depo">
+      <div class="marquee-track">
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-tamira-l5ltG3qw.webp" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/t1.jpg" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-sirlane-DyBcjxpJ.webp" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/t3.jpg" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
+        <!-- duplicata pro loop contínuo -->
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-tamira-l5ltG3qw.webp" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/t1.jpg" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-sirlane-DyBcjxpJ.webp" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/t3.jpg" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
       </div>
     </div>
   </section>
@@ -687,14 +727,35 @@ fbq('track', 'PageView');
       <h2 class="section-title">Alguns dos Temas Disponíveis</h2>
       <p class="section-sub">Uma pequena amostra do que você vai receber</p>
     </div>
-    <!-- Troque os .ph-img por <img src="temas/tema-01.jpg"> com as artes reais -->
-    <div class="gallery-grid">
-      <div class="ph-img">🎨</div>
-      <div class="ph-img">🎨</div>
-      <div class="ph-img">🎨</div>
-      <div class="ph-img">🎨</div>
-      <div class="ph-img">🎨</div>
-      <div class="ph-img">🎨</div>
+    <!-- carrossel automático de temas (direção invertida pra dar variedade visual) -->
+    <div class="marquee marquee-temas">
+      <div class="marquee-track">
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_03.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-59.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-67.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-1.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/ana_castela_02.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_06.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_05.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit1-8XJHx3nd.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit2-I1vxxmIc.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit3-WuHv-7Hg.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit5-EGkvLyMq.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit6-5WBoJoFR.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <!-- duplicata pro loop contínuo -->
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_03.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-59.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-67.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-1.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/ana_castela_02.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_06.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_05.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit1-8XJHx3nd.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit2-I1vxxmIc.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit3-WuHv-7Hg.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit5-EGkvLyMq.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit6-5WBoJoFR.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+      </div>
     </div>
     <div class="tag-row">
       <span class="tag">Homem Aranha</span>
@@ -731,15 +792,16 @@ fbq('track', 'PageView');
   </section>
 
   <!-- ===== PREÇOS ===== -->
-  <section class="section" id="precos">
+  <section class="section" id="precos" style="scroll-margin-top:56px;">
     <div class="center">
       <h2 class="section-title">Escolha seu pacote</h2>
     </div>
     <div class="pricing">
 
-      <div class="price-card">
+      <!-- ⚠️ COLE AQUI O LINK DO SEU CHECKOUT DO PACOTE BÁSICO (ex: link da Kiwify/Hotmart/Eduzz) -->
+      <div class="price-card basic">
         <div class="plan-name">Pacote Básico</div>
-        <div class="price">R$ 5,99</div>
+        <div class="price">R$ 4,99</div>
         <div class="price-note">Pagamento único</div>
         <ul class="feat-list">
           <li><span class="ck">✓</span> +2.500 moldes de festa</li>
@@ -748,9 +810,10 @@ fbq('track', 'PageView');
           <li class="no"><span class="x">✕</span> NÃO inclui bônus</li>
           <li class="no"><span class="x">✕</span> NÃO inclui atualizações</li>
         </ul>
-        <a href="#checkout-basico" class="btn-outline">QUERO O BÁSICO</a>
+        <a href="COLE_AQUI_O_LINK_DO_CHECKOUT_BASICO" class="btn-outline">Quero só o básico</a>
       </div>
 
+      <!-- ⚠️ COLE AQUI O LINK DO SEU CHECKOUT DO PACOTE PREMIUM (ex: link da Kiwify/Hotmart/Eduzz) -->
       <div class="price-card featured">
         <span class="badge-top">MAIS ESCOLHIDO</span>
         <div class="plan-name">Pacote Premium + Bônus</div>
@@ -782,8 +845,8 @@ fbq('track', 'PageView');
           <li><span class="ck">✓</span> Garantia 30 dias</li>
         </ul>
         <p class="social-proof-tag">⭐ A maioria das clientes escolhe este pacote</p>
-        <a href="#checkout-premium" class="btn-cta">🔥 QUERO TUDO LIBERADO AGORA</a>
-        <p class="featured-foot">Mais completo e mais lucrativo</p>
+        <a href="COLE_AQUI_O_LINK_DO_CHECKOUT_PREMIUM" class="btn-cta">🔥 QUERO TUDO LIBERADO AGORA</a>
+        <p class="featured-foot"><span class="hand-note">vale muito mais a pena 💚</span></p>
       </div>
 
     </div>
@@ -834,18 +897,6 @@ fbq('track', 'PageView');
     © <span id="year"></span> — Mãe Festeira — Todos os direitos reservados.
   </footer>
 
-  <!-- toast de compra: desativado por padrão, ver comentário no CSS -->
-  <div class="buy-toast" id="buyToast">
-    <div class="dot"></div>
-    <div>Conecte um feed real de vendas para ativar este aviso.</div>
-  </div>
-
-  <!-- ===== BARRA FIXA (mobile) ===== -->
-  <div class="sticky-cta">
-    <div class="price-mini">R$19,90<small>à vista</small></div>
-    <a href="#precos" class="btn-cta" style="flex:1;">QUERO AGORA</a>
-  </div>
-
 </div>
 
 <script>
@@ -853,6 +904,25 @@ fbq('track', 'PageView');
   document.getElementById('today-date').textContent =
     new Date().toLocaleDateString('pt-BR');
   document.getElementById('year').textContent = new Date().getFullYear();
+
+  // VSL: o vídeo só é injetado no DOM quando a pessoa toca em play,
+  // assim a página não baixa o arquivo de vídeo no carregamento inicial
+  var vslBox = document.getElementById('vslBox');
+  var vslPlay = document.getElementById('vslPlay');
+  if (vslBox && vslPlay) {
+    vslPlay.addEventListener('click', function () {
+      var src = vslBox.getAttribute('data-src');
+      var video = document.createElement('video');
+      video.src = src;
+      video.controls = true;
+      video.autoplay = true;
+      video.playsInline = true;
+      video.setAttribute('preload', 'auto');
+      vslBox.innerHTML = '';
+      vslBox.appendChild(video);
+      video.play().catch(function () {});
+    }, { once: true });
+  }
 </script>
 
 </body>
