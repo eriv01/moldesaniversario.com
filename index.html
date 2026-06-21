@@ -519,9 +519,12 @@ fbq('track', 'PageView');
     width:max-content;
     gap:10px;
     padding:0 20px;
-    animation:marquee-scroll linear infinite;
+    animation-name:marquee-scroll;
+    animation-timing-function:linear;
+    animation-iteration-count:infinite;
+    animation-duration:30s; /* valor de segurança, cada carrossel sobrescreve abaixo */
   }
-  .marquee:active .marquee-track{animation-play-state:paused;}
+  .marquee:hover .marquee-track{animation-play-state:paused;}
   @keyframes marquee-scroll{
     from{transform:translateX(0);}
     to{transform:translateX(-50%);}
@@ -556,10 +559,6 @@ fbq('track', 'PageView');
     border-radius:var(--radius-md);
   }
   .marquee-temas .marquee-item:nth-child(3n){transform:rotate(-1.5deg);}
-
-  @media (prefers-reduced-motion: reduce){
-    .marquee-track{animation:none;}
-  }
 
   /* ===== ÍCONES ORGÂNICOS (substitui o círculo perfeito padrão) ===== */
   .step-ic{
