@@ -3,6 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0">
+<script>
+  // garante que a página sempre abre no topo (hero/vídeo), mesmo se o link
+  // tiver #precos de algum clique anterior ou o navegador tentar restaurar scroll
+  if ('scrollRestoration' in history) { history.scrollRestoration = 'manual'; }
+</script>
 <title>+2.500 Moldes de Festa Infantil Prontos para Imprimir | Mãe Festeira</title>
 <meta name="description" content="Mais de 2.500 moldes digitais de festa infantil prontos para baixar e imprimir. Acesso imediato após o pagamento.">
 
@@ -538,16 +543,16 @@ fbq('track', 'PageView');
 
   .marquee-festas .marquee-track{animation-duration:34s;}
   .marquee-festas .marquee-item{
-    width:128px;height:128px;
-    border-radius:var(--radius-sm);
-    border:1.5px solid rgba(31,174,95,0.28); /* borda verde bem leve */
+    width:178px;height:178px;
+    border-radius:var(--radius-md);
+    border:2px solid rgba(31,174,95,0.28); /* borda verde bem leve */
   }
   .marquee-festas .marquee-item:nth-child(odd){transform:rotate(-2deg);}
   .marquee-festas .marquee-item:nth-child(even){transform:rotate(1.5deg);}
 
   .marquee-depo .marquee-track{animation-duration:24s;}
   .marquee-depo .marquee-item{
-    width:140px;height:208px;
+    width:185px;height:275px;
     border-radius:var(--radius-md);
     border:1px solid var(--border);
     box-shadow:var(--shadow);
@@ -555,7 +560,7 @@ fbq('track', 'PageView');
 
   .marquee-temas .marquee-track{animation-duration:40s;animation-direction:reverse;}
   .marquee-temas .marquee-item{
-    width:118px;height:118px;
+    width:158px;height:158px;
     border-radius:var(--radius-md);
   }
   .marquee-temas .marquee-item:nth-child(3n){transform:rotate(-1.5deg);}
@@ -642,29 +647,29 @@ fbq('track', 'PageView');
     <!-- carrossel automático — lista duplicada para o loop ficar contínuo -->
     <div class="marquee marquee-festas">
       <div class="marquee-track">
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-06.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-13.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-02.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-09.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17-1.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-14.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-12.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-08.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-05.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-11.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-06.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-13.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-02.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-09.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17-1.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-14.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-12.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-08.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-05.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-11.jpg" alt="Festa montada com os moldes" loading="lazy" decoding="async" width="178" height="178"></div>
         <!-- duplicata pro loop infinito (mesmas imagens, mantém o efeito contínuo) -->
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-06.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-13.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-02.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-09.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17-1.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-14.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-12.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-08.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-05.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-11.jpg" alt="" loading="lazy" decoding="async" width="128" height="128"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-06.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-13.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-02.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-09.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17-1.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-14.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-12.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-08.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-05.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-17.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/festa-11.jpg" alt="" loading="lazy" decoding="async" width="178" height="178"></div>
       </div>
     </div>
     <a href="#precos" class="btn-cta">🎉 QUERO FAZER FESTAS ASSIM</a>
@@ -707,15 +712,15 @@ fbq('track', 'PageView');
     <!-- carrossel automático de depoimentos -->
     <div class="marquee marquee-depo">
       <div class="marquee-track">
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-tamira-l5ltG3qw.webp" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/t1.jpg" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-sirlane-DyBcjxpJ.webp" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/t3.jpg" alt="Depoimento de cliente" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-tamira-l5ltG3qw.webp" alt="Depoimento de cliente" loading="lazy" decoding="async" width="185" height="275"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/t1.jpg" alt="Depoimento de cliente" loading="lazy" decoding="async" width="185" height="275"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-sirlane-DyBcjxpJ.webp" alt="Depoimento de cliente" loading="lazy" decoding="async" width="185" height="275"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/t3.jpg" alt="Depoimento de cliente" loading="lazy" decoding="async" width="185" height="275"></div>
         <!-- duplicata pro loop contínuo -->
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-tamira-l5ltG3qw.webp" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/t1.jpg" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-sirlane-DyBcjxpJ.webp" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/t3.jpg" alt="" loading="lazy" decoding="async" width="140" height="208"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-tamira-l5ltG3qw.webp" alt="" loading="lazy" decoding="async" width="185" height="275"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/t1.jpg" alt="" loading="lazy" decoding="async" width="185" height="275"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/testimonial-sirlane-DyBcjxpJ.webp" alt="" loading="lazy" decoding="async" width="185" height="275"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/t3.jpg" alt="" loading="lazy" decoding="async" width="185" height="275"></div>
       </div>
     </div>
   </section>
@@ -729,31 +734,31 @@ fbq('track', 'PageView');
     <!-- carrossel automático de temas (direção invertida pra dar variedade visual) -->
     <div class="marquee marquee-temas">
       <div class="marquee-track">
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_03.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-59.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-67.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-1.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/ana_castela_02.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_06.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_05.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit1-8XJHx3nd.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit2-I1vxxmIc.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit3-WuHv-7Hg.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit5-EGkvLyMq.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit6-5WBoJoFR.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_03.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-59.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-67.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-1.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/ana_castela_02.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_06.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_05.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit1-8XJHx3nd.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit2-I1vxxmIc.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit3-WuHv-7Hg.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit5-EGkvLyMq.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item"><img src="https://doram.shop/wp-content/uploads/2026/06/kit6-5WBoJoFR.webp" alt="Tema de festa disponível" loading="lazy" decoding="async" width="158" height="158"></div>
         <!-- duplicata pro loop contínuo -->
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_03.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-59.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-67.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-1.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/ana_castela_02.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_06.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_05.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit1-8XJHx3nd.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit2-I1vxxmIc.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit3-WuHv-7Hg.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit5-EGkvLyMq.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
-        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit6-5WBoJoFR.webp" alt="" loading="lazy" decoding="async" width="118" height="118"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_03.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-59.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-67.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/FOTO-CARROSSEL-1.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/ana_castela_02.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_06.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/stich_05.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit1-8XJHx3nd.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit2-I1vxxmIc.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit3-WuHv-7Hg.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit5-EGkvLyMq.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
+        <div class="marquee-item" aria-hidden="true"><img src="https://doram.shop/wp-content/uploads/2026/06/kit6-5WBoJoFR.webp" alt="" loading="lazy" decoding="async" width="158" height="158"></div>
       </div>
     </div>
     <div class="tag-row">
@@ -899,6 +904,10 @@ fbq('track', 'PageView');
 </div>
 
 <script>
+  // sempre começa no topo (hero), nunca pula direto pro bloco de oferta
+  window.scrollTo(0, 0);
+  window.addEventListener('load', function () { window.scrollTo(0, 0); });
+
   // data de hoje na faixa de oferta (sempre real, nunca fica desatualizada)
   document.getElementById('today-date').textContent =
     new Date().toLocaleDateString('pt-BR');
